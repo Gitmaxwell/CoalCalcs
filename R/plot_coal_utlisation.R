@@ -60,6 +60,8 @@ calculate_caol_utilisation <- function(Ashad,CSN,CVad,TSad,VM)
 #meetssumm <- dt[,list(ideal_meets = sum(ideal_meets),full_meets = sum(full_meets)), by=c("values")]
 #names(meetssumm) <- c("Product", "Number of parameters in ideal range", "Number of parameters in full range")
 
+#
+
 
 
 
