@@ -7,7 +7,7 @@ output:
     toc: true
     number_sections: false
     toc_depth: 5
-#bibliography: CoalCals.bib
+bibliography: references.bib
   
 vignette: >
   %\VignetteIndexEntry{Background}
@@ -22,42 +22,256 @@ library(bookdown)
 
 ```
 
-##About CoalCalcs
 
-'CoalCals' is an R package for converting or calculating bases and units of measure of coal analyses including:
+## Introduction
 
-* conversion of coal analyses moisture basis (from/to: as received, air dried, dry) 
-
-* conversion of coal analyses basis to ash free or dry mineral matter free
-
-* conversion of relative density (air dried) basis to intitu basis with option to use Prestons Sanders or Smith formulas
-
-* calculation of relative density insitu basis using ACARP direct method formulas
-
-* calculation of insitu moisture using formulas derived from ACARP project C10042 
-
-* conversions to report Hydrogen including or excluding H in moisture
-
-* calculation of gross Gross Calorific Value using Ultimate Analysis
-
-* net calorific value calculations and conversions with options to use ASTM, IS or Seyler's formulas 
+Coal moisture and insitu density conversions are amongst the most common conversion in the coal industry. These conversions allow for the comparision of coal constitutes (such as ash, volatile matter, fixed carbon) on a common basis. Further, reporting of coal at insitu density basis is a requirment for the reporting of coal resources and reserves (@code2012jorc). As such numerous studies () have been undertaken to derive forumlas for calculating insitu mositure and density. While these formulas and conversions are relativly accessible in the literature, these formulas have not been convinently wrapped in any open source software package/program. CoalCalcs hopes to bridge this gap.
 
 
+## Moisture bases conversion
 
-While various online coal bases (usually simple energy or moisture conversion) calculators exist, and formulas are well documented no scripting package (such as R or Python) exists which demonstrates or enables the use of these conversions/calculations in one place. For those persons in the coal industry who are beginning to or have integrated R into their workflow/s this package should provide a valuable tool to facilitate rapid coal analyses validation, and conversion. 
+Most common coal analyses conversions are moisture bases conversions. These conversions allow the investigation of coal constitutes (usually the results of a proximate analysis) with or without air dried and free moisture. Moisture conversions can be found in ASTM D3180 (@standardd3180) and are freely available online through the [World Coal Institute](http://www.drummondco.com/wp-content/uploads/coalconversionfacts200704_06_2009.pdf). Moisture basis conversions are convineintly available in a single function CoalCalcs::convert_bases(). The following examples each available moisture bases conversion and provides the formula for each.
+
+Definitions/Abreviations:
+
+* As Received (ar): includes Total Moisture (tm)
+
+* Air Dried (ad): includes Inherent Moisture (im) only
+
+* Dry Basis (db): excludes all Moisture
+
+* Dry Ash Free (daf): excludes all Moisture & Ash
 
 
-##Conversion of coal analyses moisture basis
+### Formulas
 
-Most common coal analyses conversions are moisture bases conversions. These conversions allow to investigation of coal constitutes (usually the results of a proximate analysis) with or without air dried and free moisture. Investigating different coals at a common basis (usually without moisture or mineral matter) allows for ease of comparision. CoalCals moisture bases conveersions are conviniently wrapped up in a single function 
+#### Convert from air dried to dry
+```{r, eval=TRUE}
+CoalCalcs::convert_bases(12,"adtodry",im=4)
+```
 
-"ACARPA" requires all arguments and is derived by the forumla:
- 
-$$-0.000003953Ashd^2+0.006924*Ashd+0.000097*VMdaf^2-0.01246*VMdaf-0.0006518*Cdaf^2+0.09801*Cdaf+0.5144*RDd^2-1.404*RDd-1.104$$
-$$-0.395310\times10^{-7}*Ashd^2+0.006924*Ashd+0.000097*VMdaf^2-0.01246*VMdaf-0.0006518*Cdaf^2+0.09801*Cdaf+0.5144*RDd^2-1.404*RDd-1.104$$
+$$\begin{align}
+\small dry = ad\cdot\frac{100}{(100-im)} &&\small \text{(ASTM D3180)}
+\end{align}$$
 
-##Example workflows
 
-$Y = X\beta + \epsilon$
+#### Convert from dry to air dried
+```{r}
+CoalCalcs::convert_bases(12,"drytoad",im=4)
+```
+
+$$\small ad = dry\cdot\frac{(100-im)}{(100)}$$
+
+#### Convert from air dried to as received
+```{r}
+CoalCalcs::convert_bases(12,"adtoar",im=4,tm=8)
+```
+
+ $$\small ar=ad\cdot\frac{(100-tm)}{(100-im)}$$
+
+#### Convert from air dried to nominated moisture
+```{r}
+CoalCalcs::convert_bases(12,"adtonm",im=4,nm=6)
+```
+
+$$\small nm =ad\cdot\frac{(100-nm)}{(100-im)}$$
+
+#### Convert from as recieved to air dried
+```{r}
+CoalCalcs::convert_bases(12,"artoad",im=4,tm=6)
+```
+$$\small ad=ar\cdot\frac{(100-im)}{(100-tm)}$$
+
+
+#### Convert from dry to dry ash free
+```{r}
+CoalCalcs::convert_bases(12,"drytodaf",Ashd=8)
+```
+$$\small daf = dry\cdot\frac{100}{(100-Ash_{d})}$$
+
+
+## Methods of estimating insitu relative density
+
+
+### Preston Sanders equation 
+
+The 'Preston Sanders' equation uses inherent moisutre ($\small im$), in situ moisture ($\small is$) and laboratory relative density on an air dried bases ($\small RD_{ad}$) to estimate insitu relative desity ($\small RD_{is}$). The method and formula is detailed in @preston.  This method is most widely used the in the coal industry, however requires knowledge of insitu moisture which is difficult to measure directly from sample. Conventionally insitu moisture has to be predicted from other parameters or estimated from local deposit geology knowledge.
+
+```{r}
+CoalCalcs::convert_RDadtoRDis(RDad = 1.4, im=3.4, is=5.2)
+```
+
+$$\small RD_{is} = \frac{RD_{ad}\cdot(100-im)}{100+RD_{ad}\cdot(is-im)-is}$$
+
+Where:
+
+$\small RD_{is} = \text{insitu relative density}$
+
+$\small RD_{ad} = \text{air dried relative density (Ref: AS 1038.21)}$
+
+$\small im = \text{inherent moisture % (commonly refered to as air dried moisture)}$
+
+$\small is = \text{in situ moisture %}$
+
+
+The equation can alternativly be written to use reltive density on a dry basis ($\small RD_{d}$):
+
+$$\small RD_{is} = \frac{100\cdot RD_{d}}{100+RD_{d}\cdot is-im}$$
+
+
+
+### Smith methods
+
+@smith proposed a series of equations to estimate insitu relative densities of different rank coal. His study was based on laboratory test results of Alberta coals. To estimate in situ relative density ($\small RD_{is}$) of coal he assumed:
+
+* Coal is composed of coal matrix (ash-free material), ash and water
+
+* Density of coal on a dry-mineral-matter-free is a function of coal rank
+
+* Average of 2.9 g/cc of ash density
+
+* Average bed moisture or insitu moisture of coal matrix are:
+
+* 1% for Low and medium volatile bituminous coal
+
+* 7% for High volatile bituminous coal
+
+* 20% for sub-bituminous coal
+
+* 30% for lignite
+
+Given these assumptions he derived a series of equations to estimate insitu relative density for four coal ranks. These equations are refered to within CoalCalcs as "smitha","simthb","smithc","smithd".
+
+Abbreviations:
+
+* Ashd = Ash (dry basis)
+
+
+#### simtha (for low and medium volatile bituminous coal)
+```{r}
+CoalCalcs::calculate_RDis("smitha",Ashd=18.24)
+
+```
+
+
+$$\small RD_{is} =\frac{100}{(75.4-0.402\cdot Ash_{d})}$$
+Where:
+
+$\small RD_{is} = \text{insitu relative density}$
+
+$\small Ash_{d} = \text{ash % (dry basis)}$
+
+
+#### simthb (for high volatile bituminous coal)
+```{r}
+CoalCalcs::calculate_RDis("smithb",Ashd=18.24)
+
+```
+
+$$\small RD_{is}=\frac{100}{(76.9-0.417\cdot Ash_{d})}$$
+
+
+#### simthc (for sub-bituminous coal)
+```{r}
+CoalCalcs::calculate_RDis("smithc",Ashd=18.24)
+
+```
+
+$$\small RD_{is}=\frac{100}{(80.1-0.451\cdot Ash_{d})}$$
+
+#### smithd (for lignite)
+```{r}
+CoalCalcs::calculate_RDis("smithd",Ashd=18.24)
+
+```
+
+$$\small RD_{is}=\frac{100}{(82.6-0.476\cdot Ash_{d})}$$
+
+### ACARP project C10042 Models
+Three models were developed during ACARP project C10042. The primary suggeested method (refered to in CoalCalcs as "ACARPA") requires accurate measures of ash % (dry), volatile matter (daf), carbon (daf) and relative density (dry). Two secondary models ("ACARPB" and "ACARPC") were developed in cases where relative density and/or carbon are unavailble or unreliable. The following examples how to call these methods in CoalCalcs and provides the formulas.
+
+#### Model A 
+
+```{r}
+CoalCalcs::calculate_RDis("ACARPA",RDd = 1.48, Ashd = 18.24, VMdaf = 27.63, Cdaf = 87.60)
+```
+
+$$\begin{eqnarray}
+    \small RD_{is} =-3.953\times10^{-6}\cdot Ash_{d}^2+6.924\cdot \times10^{-3}\cdot Ash_{d}+9.7\times10^{-5}\cdot VM_{daf}^2-1.246\times10^{-2}\cdot VM_{daf}\\
+    \small -6.518\times10^{-4}\cdot C_{daf}^2+9.801\times10^{-2}\cdot C_{daf}+5.144\times10^{-1}\cdot RD_{d}^2-1.404\cdot RD_{d}-1.104
+  \end{eqnarray}$$
+  
+
+Where:
+
+$\small RD_{is} = \text{insitu relative density}$
+
+$\small RD_{d} = \text{relative density dry basis) (Ref: AS 1038.21.1.1)}$
+
+$\small Ash_{d} = \text{ash (dry basis) (Ref: AS 1038.3)}$
+
+$\small VM_{daf} = \text{volatile matter ‘dry-ash-free’ basis (Ref: AS 1038.3)}$
+
+$\small C_{daf} = \text{carbon from ultimates ‘dry-ash-free’ basis (Ref AS 1038.6.1)}$
+
+
+
+#### Model B
+```{r}
+CoalCalcs::calculate_RDis("ACARPB",Ashd = 18.24, VMdaf = 27.63, Cdaf = 87.60)
+```
+$$\begin{eqnarray}
+    \small RD_{is}= 2.582\times10^{-5}\cdot Ash_{d}^2+6.251\cdot \times10^{-3}\cdot Ash_{d}+8.608\times10^{-5}\cdot \\
+    \small VM_{daf}^2-1.32\times10^{-2}\cdot VM_{daf}-6.447\times10^{-4}\cdot C_{daf}^2+9.253\times10^{-2}\cdot C_{daf}-1.602
+  \end{eqnarray}$$  
+
+
+#### Model C
+```{r}
+CoalCalcs::calculate_RDis("ACARPC",RDd = 1.48,Ashd = 18.24, VMdaf = 27.63)
+```
+$$\begin{eqnarray}
+    \small RDis=5.079\times10^{-1} * RDd + 4.470\times10^{-3} * Ashd - 1.783\times10{-3} * VMdaf + 0.6291 
+  \end{eqnarray}$$
+
+
+## Method for estimating insitu moisture
+
+
+### ACARP C10041 methods
+
+ACARP (Australian Coal Association Research Programme) also funded in 2003 a project (C10041) to better understand the relationship of insitu moisture with other quality parameters such as proximate and ultimate analysis data. 
+The estimated insitu moisture can then be used to estimate insitu relative density ($RD_{is}$) using Preston Sanders equation.
+
+$$\begin{align}
+\small M_{is} = 1.2283\cdot MHC_{high} + 12.5334\cdot C_{o,dmmf}^2 - 0.9855\cdot Lip_{mmf} + 0.0426\cdot Lip_{mmf}^2-526.56 &&\small \text{(C10041 (5.9))}
+\end{align}$$
+
+$$\small M_{is} = 1.2283\cdot MHC_{high} + 12.5334\cdot C_{o,dmmf}^2 - 0.9855\cdot Lip_{mmf} + 0.0426\cdot Lip_{mmf}^2-526.56$$
+
+$$\begin{align}
+\small dry = ad\cdot\frac{100}{(100-im)} &&\small \text{(ASTM D3180)}
+\end{align}$$
+
+
+
+Mis = 1.2283 MHChigh + 12.5334 Co,dmmf - 0.0742 Co,dmmf
+2 - 0.9855 Lipmmf
++ 0.0426 Lipmmf
+2 - 526.56
+
+###ACARP C10042 Methods
+
+$$\small 8.682\times10^{-3}\cdot Ash_{d}^2 - 4.718\times10^{-1}\cdot Ash_{d} + 8.269\times10^{-3}\cdot VM_{daf}^2\\
+\small -3.200\cdot H_{daf}^2 + 25.914\cdot H_{daf} - 4.682\times10^{-2}\cdot M_{ad}^2 + 1.523\cdot M_{ad}-45.67$$
+
+$\text{(Ref C10042 eqn sec 9.2)}$
+
+
+
+
+## References
+
+
 
 

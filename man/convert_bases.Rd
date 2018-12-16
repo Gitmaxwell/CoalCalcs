@@ -29,7 +29,6 @@ The function allows for the conversion of coal analyses from or to (fromto) desi
 \item From air dried basis to as received ("adtoar") or from as received to air dried ("artoad")
 \item From air dried basis to any nominated (fixed) basis ("adtonm")
 \item From as received to dry ("artodry") or from dry to as received ("drytoar")
-\item 
 }
 
 Valid fromto text strings include any of:

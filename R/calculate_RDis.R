@@ -26,6 +26,9 @@
 #'  
 #'  \deqn{0.5079*RDd+0.00447*Ashd-0.001783*VMdaf+0.6291}
 #'  
+#'
+#'
+#'  
 #' __Simth Models__
 #' Gant Smith (1991) proposed (1991) a series of equations to estimate insitu relative densities of different rank coal. His study was based on laboratory test results of Alberta coals. To estimate insitu relative density of coal he assumed:
 #'  
@@ -55,6 +58,8 @@
 #'
 #' Subbituminous coal:
 #' \deqn{insitu relative density=100/(80.1-0.451* Ashd)}
+#' 
+#' \deqn{RD_{is}=\\frac{100}{(80.1-0.451\\cdot Ash_{d})}}
 #'
 #' Lignite:
 #' \deqn{insitu relative density=100/(82.6-0.476* Ashd)}
@@ -77,7 +82,7 @@
 #' 
 #' calculate_RDis("smithd",NA,18.24,NA,NA)
 
-calculate_RDis <- function (model,RDd,Ashd=NA,VMdaf=NA,Cdaf=NA){
+calculate_RDis <- function (model,RDd=NA,Ashd=NA,VMdaf=NA,Cdaf=NA){
   #2003 ACARP Model (direct method)
   if (model %in% c("ACARPA")) {(-0.000003953*Ashd^2+0.006924*Ashd+0.000097*VMdaf^2-0.01246*VMdaf-0.0006518*Cdaf^2+0.09801*Cdaf+0.5144*RDd^2-1.404*RDd-1.104)}
   else
@@ -85,12 +90,12 @@ calculate_RDis <- function (model,RDd,Ashd=NA,VMdaf=NA,Cdaf=NA){
   else
     if (model %in% c("ACARPC")) {(0.5079*RDd+0.00447*Ashd-0.001783*VMdaf+0.6291)}
   else
-    if (method %in% c("smitha")) {(100/(75.4-0.402*Ashd))} 
+    if (model %in% c("smitha")) {(100/(75.4-0.402*Ashd))} 
   else
-    if (method %in% c("smithb")) {(100/(76.9-0.417*Ashd))} 
+    if (model %in% c("smithb")) {(100/(76.9-0.417*Ashd))} 
   else
-    if (method %in% c("smithc")) {(100/(80.1-0.451*Ashd))} 
+    if (model %in% c("smithc")) {(100/(80.1-0.451*Ashd))} 
   else
-    if (method %in% c("smithd")) {(100/(82.6-0.476*Ashd))} 
+    if (model %in% c("smithd")) {(100/(82.6-0.476*Ashd))} 
 }  
 

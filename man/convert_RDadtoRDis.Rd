@@ -19,7 +19,7 @@ This function converts relative density (air dried) (RDad) to insitu density (RD
 \details{
 Uses Preston Sanders formula to convert relative density (air dried) (RDad) to insitu density (RDis). The forumla is:
 
- RDis = (RDad*(100-im))/(100+RDad*(is-im)-is)
+\deqn{RDis = (RDad*(100-im))/(100+RDad*(is-im)-is)}
 }
 \examples{
 convert_RDadtoRDis(1.4,3.4,5.2)

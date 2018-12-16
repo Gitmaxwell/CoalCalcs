@@ -4,7 +4,7 @@
 \alias{calculate_RDis}
 \title{Calculate insitu relative density (RDis)}
 \usage{
-calculate_RDis(model, RDd, Ashd = NA, VMdaf = NA, Cdaf = NA)
+calculate_RDis(model, RDd = NA, Ashd = NA, VMdaf = NA, Cdaf = NA)
 }
 \arguments{
 \item{model}{The character string indicating the insitu density calculation formula to use. \emph{Character}, \emph{required}}
@@ -66,6 +66,8 @@ High volatile bituminous coal:
 
 Subbituminous coal:
 \deqn{insitu relative density=100/(80.1-0.451* Ashd)}
+
+\deqn{RD_{is}=\\frac{100}{(80.1-0.451\\cdot Ash_{d})}}
 
 Lignite:
 \deqn{insitu relative density=100/(82.6-0.476* Ashd)}
