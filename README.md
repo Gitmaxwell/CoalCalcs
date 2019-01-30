@@ -7,7 +7,13 @@ About CoalCalcs
 
 -   conversion of coal analyses basis to ash free or dry mineral matter free
 
--   conversion of relative density (air dried) basis to intitu basis with option to use Prestons Sanders or Smith formulas
+-   conversion of relative density (air dried) basis to intitu basis or dry basis using Prestons Sanders formulas
+
+Further it provides functionality for the direct calculation of insitu moisture and density using methods:
+
+-   derived from ACARP project C10041 and ACRAP
+
+-   Simth
 
 -   calculation of relative density insitu basis using ACARP direct method formulas
 
