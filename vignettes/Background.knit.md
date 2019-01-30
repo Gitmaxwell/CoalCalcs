@@ -1,7 +1,7 @@
 ---
 title: "Background"
 author: "Kane Maxwell"
-date: "`r Sys.Date()`"
+date: "2018-12-21"
 output: 
   rmarkdown::html_vignette:
     toc: true
@@ -15,12 +15,7 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
-```{r, echo=FALSE, eval=FALSE}
-library(knitr)
-library(rmarkdown)
-library(bookdown)
 
-```
 
 
 ## Introduction
@@ -75,7 +70,8 @@ Definitions/Abreviations:
 ### Formulas
 
 #### Convert from air dried to dry
-```{r, eval=FALSE}
+
+```r
 CoalCalcs::convert_bases(12,"adtodry",im=4)
 ```
 
@@ -83,35 +79,40 @@ $$\small dry = ad\cdot\frac{100}{(100-im)}$$
 
 
 #### Convert from dry to air dried
-```{r,eval=FALSE}
+
+```r
 CoalCalcs::convert_bases(12,"drytoad",im=4)
 ```
 
 $$\small ad = dry\cdot\frac{(100-im)}{(100)}$$
 
 #### Convert from air dried to as received
-```{r, eval=FALSE}
+
+```r
 CoalCalcs::convert_bases(12,"adtoar",im=4,tm=8)
 ```
 
  $$\small ar=ad\cdot\frac{(100-tm)}{(100-im)}$$
 
 #### Convert from air dried to nominated moisture
-```{r, eval=FALSE}
+
+```r
 CoalCalcs::convert_bases(12,"adtonm",im=4,nm=6)
 ```
 
 $$\small nm =ad\cdot\frac{(100-nm)}{(100-im)}$$
 
 #### Convert from as recieved to air dried
-```{r, eval=FALSE}
+
+```r
 CoalCalcs::convert_bases(12,"artoad",im=4,tm=6)
 ```
 $$\small ad=ar\cdot\frac{(100-im)}{(100-tm)}$$
 
 
 #### Convert from dry to dry ash free
-```{r, eval=FALSE}
+
+```r
 CoalCalcs::convert_bases(12,"drytodaf",Ashd=8)
 ```
 $$\small daf = dry\cdot\frac{100}{(100-Ash_{d})}$$
@@ -124,7 +125,8 @@ $$\small daf = dry\cdot\frac{100}{(100-Ash_{d})}$$
 
 The 'Preston Sanders' equation uses air dried moisture ($\small M_{ad}$), in situ moisture ($\small M_{is}$) and laboratory relative density on an air dried bases ($\small RD_{ad}$) to estimate insitu relative desity ($\small RD_{is}$). The method and formula is detailed in @preston.  This method is most widely used the in the coal industry, however requires knowledge of insitu moisture which must first be predicted or assumed (see [Methods for estimating In Situ moisture]).
 
-```{r, eval=FALSE}
+
+```r
 CoalCalcs::convert_RDadtoRDis(RDad = 1.4, Mad=3.4, Mis=5.2)
 ```
 
@@ -175,9 +177,13 @@ Abbreviations:
 
 
 #### simtha (for low and medium volatile bituminous coal)
-```{r}
-CoalCalcs::calculate_RDis("smitha",Ashd=18.24)
 
+```r
+CoalCalcs::calculate_RDis("smitha",Ashd=18.24)
+```
+
+```
+## [1] 1.469129
 ```
 
 
@@ -190,26 +196,38 @@ $\small Ash_{d} = \text{ash % (dry basis)}$
 
 
 #### simthb (for high volatile bituminous coal)
-```{r}
-CoalCalcs::calculate_RDis("smithb",Ashd=18.24)
 
+```r
+CoalCalcs::calculate_RDis("smithb",Ashd=18.24)
+```
+
+```
+## [1] 1.443128
 ```
 
 $$\small RD_{is}=\frac{100}{(76.9-0.417\cdot Ash_{d})}$$
 
 
 #### simthc (for sub-bituminous coal)
-```{r}
-CoalCalcs::calculate_RDis("smithc",Ashd=18.24)
 
+```r
+CoalCalcs::calculate_RDis("smithc",Ashd=18.24)
+```
+
+```
+## [1] 1.391328
 ```
 
 $$\small RD_{is}=\frac{100}{(80.1-0.451\cdot Ash_{d})}$$
 
 #### smithd (for lignite)
-```{r}
-CoalCalcs::calculate_RDis("smithd",Ashd=18.24)
 
+```r
+CoalCalcs::calculate_RDis("smithd",Ashd=18.24)
+```
+
+```
+## [1] 1.352855
 ```
 
 $$\small RD_{is}=\frac{100}{(82.6-0.476\cdot Ash_{d})}$$
@@ -219,8 +237,13 @@ Three models were developed during ACARP project C10042. The primary suggeested 
 
 #### Model A 
 
-```{r}
+
+```r
 CoalCalcs::calculate_RDis("ACARPA",RDd = 1.48, Ashd = 18.24, VMdaf = 27.63, Cdaf = 87.60)
+```
+
+```
+## [1] 1.383501
 ```
 
 $$\begin{eqnarray}
@@ -244,8 +267,13 @@ $\small C_{daf} = \text{carbon from ultimates ‘dry-ash-free’ basis (Ref AS 1
 
 
 #### Model B
-```{r}
+
+```r
 CoalCalcs::calculate_RDis("ACARPB",Ashd = 18.24, VMdaf = 27.63, Cdaf = 87.60)
+```
+
+```
+## [1] 1.379962
 ```
 $$\begin{eqnarray}
     \small RD_{is}= 2.582\times10^{-5}\cdot Ash_{d}^2+6.251\cdot \times10^{-3}\cdot Ash_{d}+8.608\times10^{-5}\cdot \\
@@ -254,8 +282,13 @@ $$\begin{eqnarray}
 
 
 #### Model C
-```{r}
+
+```r
 CoalCalcs::calculate_RDis("ACARPC",RDd = 1.48,Ashd = 18.24, VMdaf = 27.63)
+```
+
+```
+## [1] 1.413061
 ```
 $$\begin{eqnarray}
     \small RDis=5.079\times10^{-1} * RDd + 4.470\times10^{-3} * Ashd - 1.783\times10{-3} * VMdaf + 0.6291 
@@ -313,11 +346,21 @@ In collaboration with ACARP project C10041, project C10042 also derived forumals
 Model 1 (M2A) requires proximate analysis data and carbon content on dry-ash-free basis, Model 2 (M2B) dry ash, dry-ash-free volatile matters and hydrogen on a ash-dry-free basis, while Model 3 (M2C) only requires proximate analysis data.
 
 
-```{r}
+
+```r
 CoalCalcs::calculate_Mis("blah")
+```
 
+```
+## [1] "Not a valid model. Please use one of M1A, M1B or M2A"
+```
+
+```r
 CoalCalcs::calculate_Mis("M1A", EM=5)
+```
 
+```
+## [1] 5.902
 ```
 
 
@@ -343,8 +386,13 @@ $\small r = \text{mineral matter ratio}$
 #### Mineral matter formula checks
 
 #####Check 
-```{r}
+
+```r
 CoalCalcs::calculate_mmd("parr",Ashd = 12.5, Stot = 5)
+```
+
+```
+## [1] 16.25
 ```
 
 
@@ -400,11 +448,7 @@ $$\small D_{is} = \frac{100}{a-b \cdot r\cdot Ash_{dry}}$$
 
 ####Example in R:
 
-```{r}
 
-
-
-```
 
 
 ## References

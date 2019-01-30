@@ -9,9 +9,10 @@ Imports:
     reshape2
 Author: Kane Maxwell
 Maintainer: Kane Maxwell <kane.maxwell@hotmail.com>
-Description: Functions for converting or calculating bases and units of measure of coal analyses
+Description: Functions for converting or calculating bases and units of measure of coal analyses.
 License: MIT + file LICENSE
 LazyData: TRUE
 Suggests: knitr, rmarkdown
 VignetteBuilder: knitr
 RoxygenNote: 6.0.1
+Roxygen: list(markdown = TRUE)

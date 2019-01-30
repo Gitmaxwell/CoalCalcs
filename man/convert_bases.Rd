@@ -4,39 +4,56 @@
 \alias{convert_bases}
 \title{Convert (coal) bases}
 \usage{
-convert_bases(x, fromto, im = NA, tm = NA, nm = NA, Ashd = NA)
+convert_bases(x, fromto, im = NA, tm = NA, nm = NA, Ashd = NA,
+  Ashad = NA, Ashar = NA, Sdry = NA)
 }
 \arguments{
-\item{x}{The analyses to be converted, for example ash, volatile matter, fixed carbon ect. \emph{Character}, \emph{required}}
+\item{x}{The analyses to be converted, for example ash, volatile matter, fixed carbon ect.}
 
-\item{fromto}{The text string indicating the desired conversion, \emph{Character}, \emph{required}}
+\item{fromto}{The text string indicating the desired conversion}
 
-\item{im}{Inherent moisture \% (commonly refered to as air dried moisture). \emph{Numeric}}
+\item{im}{Inherent moisture \% (commonly refered to as air dried moisture)}
 
-\item{tm}{Total moisture \% (the free and air dried moisture). \emph{Numeric}}
+\item{tm}{Total moisture \% (the free and air dried moisture)}
 
-\item{nm}{Nomiated moisture. \emph{Numeric}}
+\item{nm}{Nomiated moisture}
 
-\item{Ashd}{Ash \% (dry basis).  \emph{Numeric}}
+\item{Ashd}{Ash \% (dry basis)}
+
+\item{Ashad}{Ash \% (air dry basis)}
+
+\item{Ashar}{Ash \% (as received basis)}
+
+\item{Sdry}{Total Sulfur \% (dry basis)}
 }
 \description{
 This function enables the conversion of coal analyses to a desired moisture basis
 }
 \details{
-The function allows for the conversion of coal analyses from or to (fromto) desired mositure basis including:
+The function allows for the conversion of common coal analyses from or to desired mositure basis. This function is NOT suitable for relative density basis conversion. Bases conversions include:
 \itemize{
 \item From air dried basis to dry ("adtodry") or from dry to air dried ("drytoad")
 \item From air dried basis to as received ("adtoar") or from as received to air dried ("artoad")
 \item From air dried basis to any nominated (fixed) basis ("adtonm")
 \item From as received to dry ("artodry") or from dry to as received ("drytoar")
+\item From dry to dry mineral matter free (drytodmmf) using Parr formula
 }
+
+\figure{forms_of_moisture.jpg}{}
 
 Valid fromto text strings include any of:
 
 "adtodry","adtoar", "artoad","adtonm", "artodry","drytoad","drytoar","drytodaf"
-
-\emph{"adtodry"}
 }
 \examples{
-CoalCalcs::convert_bases(13.5,"adtonm",4,NA,5,NA)
+df = data.frame(M=6.8,A=12.3, VM=36.2,FC=44.2, S=0.5)
+df$Adry =CoalCalcs::convert_bases(df$A,"adtodry", im=df$M)
+df$VMdry=CoalCalcs::convert_bases(df$VM,"adtodry", im=df$M)
+df$Adry =CoalCalcs::convert_bases(df$A,"adtodry", im=df$M)
+df$FCdry= CoalCalcs::convert_bases(df$FC, "adtodry", im=df$M)
+df$Sdry=CoalCalcs::convert_bases(df$S,"adtodry", im=df$M)
+df$VMdaf = CoalCalcs::convert_bases(df$VMdry,"drytodaf", im=df$M,Ashd = df$Adry)
+df$FCdaf = CoalCalcs::convert_bases(df$FCdry,"drytodaf", im=df$M,Ashd = df$Adry)
+df$FCdmmf = CoalCalcs::convert_bases(df$FCdry,"drytodmmf", Sdry=df$Sdry, Ashd = df$Adry)
+
 }

@@ -7,18 +7,18 @@
 calculate_RDis(model, RDd = NA, Ashd = NA, VMdaf = NA, Cdaf = NA)
 }
 \arguments{
-\item{model}{The character string indicating the insitu density calculation formula to use. \emph{Character}, \emph{required}}
+\item{model}{The character string indicating the insitu density calculation formula to use.}
 
-\item{RDd}{Relative density (dry basis). \emph{Numeric}, \emph{required} for "ACARPA" and "ACARPC" models}
+\item{RDd}{Relative density (dry basis).}
 
-\item{Ashd}{Ash \% (dry basis) (required for all models). \emph{Numeric}, \emph{required}}
+\item{Ashd}{Ash \% (dry basis) (required for all models).}
 
-\item{VMdaf}{Volatile Matter \% (dry ash free basis). \emph{Numeric}, \emph{required}}
+\item{VMdaf}{Volatile Matter \% (dry ash free basis).}
 
-\item{Cdaf}{Carbon \% (dry ash free basis). \emph{Numeric}, \emph{required} for "ACARPA" and "ACARPB" models}
+\item{Cdaf}{Carbon \% (dry ash free basis).}
 }
 \description{
-This function directly calculates insitu density with option to use one of seven alternate models/formula. \emph{Character}, \emph{required}
+This function directly calculates insitu density with option to use one of seven alternate models/formula.
 }
 \details{
 Valid model text strings include any of:

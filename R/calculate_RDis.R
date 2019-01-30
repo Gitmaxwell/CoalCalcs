@@ -1,10 +1,10 @@
 #' @title Calculate insitu relative density (RDis)
-#' @description This function directly calculates insitu density with option to use one of seven alternate models/formula. _Character_, _required_
-#' @param model The character string indicating the insitu density calculation formula to use. _Character_, _required_  
-#' @param Ashd  Ash \% (dry basis) (required for all models). _Numeric_, _required_
-#' @param RDd  Relative density (dry basis). _Numeric_, _required_ for "ACARPA" and "ACARPC" models
-#' @param VMdaf Volatile Matter \% (dry ash free basis). _Numeric_, _required_
-#' @param Cdaf Carbon \% (dry ash free basis). _Numeric_, _required_ for "ACARPA" and "ACARPB" models
+#' @description This function directly calculates insitu density with option to use one of seven alternate models/formula.
+#' @param model The character string indicating the insitu density calculation formula to use.
+#' @param Ashd  Ash \% (dry basis) (required for all models).
+#' @param RDd  Relative density (dry basis). 
+#' @param VMdaf Volatile Matter \% (dry ash free basis). 
+#' @param Cdaf Carbon \% (dry ash free basis).
 #' @details 
 #' Valid model text strings include any of:
 #' 
