@@ -9,8 +9,6 @@
 #' 
 #' Where FC and VM are at the same basis
 #' 
-#' @references 
-#' TBA
 #'  
 #' @export
 #' @examples 

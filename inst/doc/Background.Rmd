@@ -275,15 +275,12 @@ Given the eight available methods, chosing an appropriate method can be soemwhat
 
 ## Methods for estimating In Situ moisture
 
-![moisture](forms_of_moisture.jpg){width=600px}
-
-
 ### ACARP C10041 methods
 
 ACARP (Australian Coal Association Research Programme) project C10041 (@C10041) derived a number of equations to estimate in situ moisture ($\small M_{im}$). All these equations require testing of either Moisutre Holding Capacity ($\small MHC$) or Equilibrium Moisture ($\small EM$) analyses. 
 
 
-Procedures for these equations are presented in section 5 and consist of:
+Procedures for these equations are presented in section 5 (of ACARP report C10041) and consist of:
 
 * calculation from EM using Equation 5.1
 
@@ -303,7 +300,7 @@ $$\begin{align}
 \small M_{is} = 1.2283\cdot MHC_{high} + 12.5334\cdot C_{o,dmmf} ^2 - 0.9855\cdot Lip_{mmf} + 0.0426\cdot Lip_{mmf} ^2-526.56 &&\small \text{(C10041 (5.9))}
 \end{align}$$
 
-Refered to in Coal clas as M1A, M1B
+Refered to in CoalCalcs as method M1A, and M1B respective
 
 
 ### ACARP C10042 Methods
@@ -314,8 +311,6 @@ Model 1 (M2A) requires proximate analysis data and carbon content on dry-ash-fre
 
 
 ```{r}
-CoalCalcs::calculate_Mis("blah")
-
 CoalCalcs::calculate_Mis("M1A", EM=5)
 
 ```
@@ -325,86 +320,6 @@ $$\small 8.682\times10^{-3}\cdot Ash_{d}^2 - 4.718\times10^{-1}\cdot Ash_{d} + 8
 \small -3.200\cdot H_{daf}^2 + 25.914\cdot H_{daf} - 4.682\times10^{-2}\cdot M_{ad}^2 + 1.523\cdot M_{ad}-45.67$$
 
 $\text{(Ref C10042 eqn sec 9.2)}$
-
-
-### Mineral Matter
-
-#### Mineral Matter ratio
-
-$$\small r=\frac{m_{d}}{A_{d}}$$
-Where 
-
-$\small A_{d} = \text{ash (dry basis)}$
-
-$\small m_{d} = \text{mineral matter, dry basis}$
-
-$\small r = \text{mineral matter ratio}$
-
-#### Mineral matter formula checks
-
-#####Check 
-```{r}
-CoalCalcs::calculate_mmd("parr",Ashd = 12.5, Stot = 5)
-```
-
-
-###Mineral matter method
-
-Requires RD, SE to determine mineral matter ratio (or) S (for parr calculation or mineral matter)
-
-1. Convert RD to Dry using Preston Sanders
-
-2. Estimate mineral matter dry ($\small mm_{dry}$) and mineral matter ratio ($\small r$) using Gray method (or Parr if SE lacking)
-
-3. Plot $\small RD_{dry}$ against $\small RD_{dry}$ as a QA/QC check
-
-4. calculate average dry coal and mineral densities by:
-
-4.1 Performing least squares regression to optimise dry a and b coefficients in the form:
-
-
-$$\small Density = \frac{100}{a+b\cdot mm_{d}}$$
-
-OR alternativly 
-
-$$\small Density = \frac{100}{a+b\cdot r\cdot Ash{d}}$$
-
-4.2 Calculate pure coal density $\rho_{c}$ using
-
-$$\rho_{c}=\frac{100}{a}$$
-
-In lui of this pure vitrinite density of 1.3 small g/cm^3 could be used 
-
-4.3 Calculate pure mineral density $\rho_{m}$ using:
-
-$$\rho_{m}=\frac{100}{a+100\cdot b}$$
-
-In lui of this pure quartz density of 2.65 g/cm3 could be used
-
-5. Determine in situ a coefficients using the calculated $\small \rho_{c}$:
-
-$$\small a=\frac{M_{is}}{\rho_{w}} + \frac{100-M_{is}}{\rho_{c}}$$
-Where
-
-$\small \rho_w = 1.00 & g/cm^{3}$
-
-
-6. Determine in situ b co-efficient using the calculated $\small \rho_{m}$:
-
-$$b = (\frac{100-M_{is}}{100}) + (\frac{\rho_{c} - \rho_{m}}{\rho_{c} \cdot \rho_{m}})$$ 
-7. Finally estimate in situ density ($\small D_{is}$) using:
-
-$$\small D_{is} = \frac{100}{a-b \cdot r\cdot Ash_{dry}}$$
-
-
-
-####Example in R:
-
-```{r}
-
-
-
-```
 
 
 ## References

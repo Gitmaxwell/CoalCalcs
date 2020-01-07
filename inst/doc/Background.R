@@ -51,16 +51,6 @@ CoalCalcs::calculate_RDis("ACARPB",Ashd = 18.24, VMdaf = 27.63, Cdaf = 87.60)
 CoalCalcs::calculate_RDis("ACARPC",RDd = 1.48,Ashd = 18.24, VMdaf = 27.63)
 
 ## ------------------------------------------------------------------------
-CoalCalcs::calculate_Mis("blah")
-
 CoalCalcs::calculate_Mis("M1A", EM=5)
-
-
-## ------------------------------------------------------------------------
-CoalCalcs::calculate_mmd("parr",Ashd = 12.5, Stot = 5)
-
-## ------------------------------------------------------------------------
-
-
 
 

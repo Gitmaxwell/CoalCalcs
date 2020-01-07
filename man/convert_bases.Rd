@@ -39,8 +39,6 @@ The function allows for the conversion of common coal analyses from or to desire
 \item From dry to dry mineral matter free (drytodmmf) using Parr formula
 }
 
-\figure{forms_of_moisture.jpg}{}
-
 Valid fromto text strings include any of:
 
 "adtodry","adtoar", "artoad","adtonm", "artodry","drytoad","drytoar","drytodaf"

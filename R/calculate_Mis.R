@@ -15,12 +15,12 @@
 #' 
 #' 'M1A', 'M1B', 'M2A'
 #' 
-#'Model "M1A" is taken from ACARP report C0041 (eq 5.1). It requires Equilibrium Moisture as the only argument and is derived by the formula: 
+#'Model "M1A" is taken from ACARP report C10041 (eq 5.1). It requires Equilibrium Moisture as the only argument and is derived by the formula: 
 #'  
 #' \deqn{1.117*EM+0.317}
 #'  
 #'  
-#' Model "M1B" is taken from ACARP report C0041 (eq 5.9). It requires Moisture Holding Capacity, Organic Carbon (dmmf) and Liptinite (mmf) as arguments and is derived by the forumla:
+#' Model "M1B" is taken from ACARP report C10041 (eq 5.9). It requires Moisture Holding Capacity, Organic Carbon (dmmf) and Liptinite (mmf) as arguments and is derived by the forumla:
 #'  
 #' \deqn{1.2283*MHC+12.5334*Codmmf*-0.0742*Codmmf^2-0.9855*Lipmmf+0.0426*Lipmmf^2-526.56}
 #'  
@@ -29,7 +29,7 @@
 #' calculate_Mis("M1A",EM=5)
 #' 
 #' @references
-#' "Blah"
+#' Flercher, I.& Sanders, F. 2003. Estimation of In-Situ and Product Total Moisture. ACARP Report C10041 
 
 
 calculate_Mis <- function (model,Ashd=NA,VMdaf=NA,Cdaf=NA,Mad=NA,Hdaf=NA,MHC=NA,EM=NA,Codmmf=NA,Lipmmf=NA){

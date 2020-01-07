@@ -24,10 +24,6 @@
 #' 
 #' * From dry to dry mineral matter free (drytodmmf) using Parr formula
 #' 
-#' ![](forms_of_moisture.jpg)
-#' 
-#' 
-#' 
 #' Valid fromto text strings include any of:
 #' 
 #' "adtodry","adtoar", "artoad","adtonm", "artodry","drytoad","drytoar","drytodaf"

@@ -24,6 +24,3 @@ Where FC and VM are at the same basis
 \examples{
 calculate_FR(FC=65,VM=18)
 }
-\references{
-TBA
-}
