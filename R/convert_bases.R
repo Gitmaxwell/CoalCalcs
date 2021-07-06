@@ -4,15 +4,15 @@
 #' 
 #' @param x The analyses to be converted, for example ash, volatile matter, fixed carbon ect.
 #' @param fromto The text string indicating the desired conversion
-#' @param im Inherent moisture \% (commonly refered to as air dried moisture)
-#' @param tm  Total moisture \% (the free and air dried moisture)
-#' @param nm  Nomiated moisture
-#' @param Ashd  Ash \% (dry basis)
-#' @param Ashad Ash \% (air dry basis)
-#' @param Ashar Ash \% (as received basis)
-#' @param Sdry Total Sulfur \% (dry basis)
+#' @param im Inherent moisture % (commonly refered to as air dried moisture)
+#' @param tm  Total moisture % (the free and air dried moisture)
+#' @param nm  Nominated moisture
+#' @param Ashd  Ash % (dry basis)
+#' @param Ashad Ash % (air dry basis)
+#' @param Ashar Ash % (as received basis)
+#' @param Sdry Total Sulfur % (dry basis)
 #' @details
-#' The function allows for the conversion of common coal analyses from or to desired mositure basis. This function is NOT suitable for relative density basis conversion. Bases conversions include:
+#' The function allows for the conversion of common coal analyses from or to desired moisture basis. This function is NOT suitable for relative density basis conversion. Bases conversions include:
 #'  
 #' * From air dried basis to dry ("adtodry") or from dry to air dried ("drytoad") 
 #' 
@@ -74,13 +74,7 @@ convert_bases <- function (x, fromto,im=NA,tm=NA,nm=NA,Ashd=NA,Ashad=NA,Ashar=NA
   else
     if (fromto %in% c("adtonm")) {x*(100-nm)/(100-im)} #eq 4.30
   else
-    if (fromto %in% c("drytodmmf")) {100*((x-0.15*Sdry)/(100-(1.08*Ashd+0.55*Sdry)))} #Speight (2015) eq 1.4
-
-  #reference http://www.drummondco.com/wp-content/uploads/coalconversionfacts200704_06_2009.pdf
-  # Ash (A),Volatile Matter (VM), Fixed Carbon (FC),Sulphur (S) and Calorific Value (CV) – can be expressed on any of the above bases
-  #https://nptel.ac.in/courses/113104058/mme_pdf/Lecture2.pdf
-  #http://digitalcollections.library.cmu.edu/awweb/awarchive?type=file&item=428936
-  
+    if (fromto %in% c("drytodmmf")) {100*((x-0.15*Sdry)/(100-(1.08*Ashd+0.55*Sdry)))} 
 }
 
 

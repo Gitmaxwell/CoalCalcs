@@ -2,3 +2,6 @@
 ^\.Rproj\.user$
 README.Rmd
 CoalCalcs.bib
+^CoalCalcs\.Rcheck$
+^CoalCalcs.*\.tar\.gz$
+^CoalCalcs.*\.tgz$

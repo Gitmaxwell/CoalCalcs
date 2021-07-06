@@ -1,8 +1,8 @@
 #' @title Calculate Mineral Matter
-#' @description This function provides a varitey of models to predict mineral matter (mmd)
+#' @description This function provides a variety of models to predict mineral matter (mmd)
 #' @param model The character string indicating the mineral matter calculation formula to use. Valid model text strings are any one of "parr","KMC","choud"
-#' @param Ashd Ash \% (dry)
-#' @param Stot Total Sulphur \% (dry)
+#' @param Ashd Ash % (dry)
+#' @param Stot Total Sulphur % (dry)
 #' @param Sash Sulphur in coal Ash
 #' @param Spyr Pyritic Sulfur in coal
 #' @param Ssul Sulfate Sulfur in coal

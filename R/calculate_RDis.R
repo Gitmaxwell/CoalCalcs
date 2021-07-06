@@ -1,10 +1,10 @@
 #' @title Calculate insitu relative density (RDis)
 #' @description This function directly calculates insitu density with option to use one of seven alternate models/formula.
 #' @param model The character string indicating the insitu density calculation formula to use.
-#' @param Ashd  Ash \% (dry basis) (required for all models).
+#' @param Ashd  Ash % (dry basis) (required for all models).
 #' @param RDd  Relative density (dry basis). 
-#' @param VMdaf Volatile Matter \% (dry ash free basis). 
-#' @param Cdaf Carbon \% (dry ash free basis).
+#' @param VMdaf Volatile Matter % (dry ash free basis). 
+#' @param Cdaf Carbon % (dry ash free basis).
 #' @details 
 #' Valid model text strings include any of:
 #' 
@@ -40,13 +40,13 @@
 #' 
 #' * Average bed moisture or insitu moisture of coal matrix are:
 #'  
-#'    * 1\% for Low and medium volatile bituminous coal
+#'    * 1% for Low and medium volatile bituminous coal
 #'  
-#'    * 7\% for High volatile bituminous coal
+#'    * 7% for High volatile bituminous coal
 #'  
-#'    * 20\% for sub-bituminous coal
+#'    * 20% for sub-bituminous coal
 #'  
-#'    * 30\% for lignite
+#'    * 30% for lignite
 #'  
 #' Given these assumptions he derived a series of equations to estimate insitu releative density for primary coal ranks. These equations are:
 #'

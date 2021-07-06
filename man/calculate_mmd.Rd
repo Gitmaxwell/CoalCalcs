@@ -4,8 +4,16 @@
 \alias{calculate_mmd}
 \title{Calculate Mineral Matter}
 \usage{
-calculate_mmd(model, Ashd = NA, Stot = NA, Sash = NA, Spyr = NA,
-  Ssul = NA, Cl = NA, CO2 = NA)
+calculate_mmd(
+  model,
+  Ashd = NA,
+  Stot = NA,
+  Sash = NA,
+  Spyr = NA,
+  Ssul = NA,
+  Cl = NA,
+  CO2 = NA
+)
 }
 \arguments{
 \item{model}{The character string indicating the mineral matter calculation formula to use. Valid model text strings are any one of "parr","KMC","choud"}
@@ -25,7 +33,7 @@ calculate_mmd(model, Ashd = NA, Stot = NA, Sash = NA, Spyr = NA,
 \item{CO2}{Mineral carbon dioxide yield from coal}
 }
 \description{
-This function provides a varitey of models to predict mineral matter (mmd)
+This function provides a variety of models to predict mineral matter (mmd)
 }
 \details{
 Model "parr" is termed the Parr formula originally reported in Rees (1966). It is derived by:

@@ -1,7 +1,7 @@
 #' @title Convert relative density air dried to dry basis
 #' @description This function converts relative density (air dried) (RDad) to dry density (RDdry) using Prestons Sanders equation 
 #' @param RDad Relative density (air dried)
-#' @param Mad Air dried moisture \%
+#' @param Mad Air dried moisture %
 #' @details 
 #' Uses Preston Sanders formula (Preston and Sanders (1993)) to convert relative density (air dried) (RDad) to insitu density (RDdry). The forumla is:
 #' 

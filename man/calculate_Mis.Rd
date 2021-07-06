@@ -4,8 +4,18 @@
 \alias{calculate_Mis}
 \title{Calculate in situ moisture (Mis)}
 \usage{
-calculate_Mis(model, Ashd = NA, VMdaf = NA, Cdaf = NA, Mad = NA,
-  Hdaf = NA, MHC = NA, EM = NA, Codmmf = NA, Lipmmf = NA)
+calculate_Mis(
+  model,
+  Ashd = NA,
+  VMdaf = NA,
+  Cdaf = NA,
+  Mad = NA,
+  Hdaf = NA,
+  MHC = NA,
+  EM = NA,
+  Codmmf = NA,
+  Lipmmf = NA
+)
 }
 \arguments{
 \item{model}{The character string indicating the in situ moisture calculation formula to use. Must be one of "M1A", "M1B", "M2A".}

@@ -1,13 +1,13 @@
 #' @title Calculate in situ moisture (Mis)
 #' @description This function directly calculates in situ moisture with option to use one of three alternate models/formula.
 #' @param model The character string indicating the in situ moisture calculation formula to use. Must be one of "M1A", "M1B", "M2A". 
-#' @param Ashd  Ash \% (dry basis) (required for all models).
-#' @param VMdaf Volatile Matter \% (dry ash free basis).
-#' @param Cdaf Carbon from Ultimates \% (dry ash free basis).
-#' @param Mad Moisture \% (air dried)
-#' @param Hdaf Hydrogen \% (dry ash free)
-#' @param MHC Moisture Holding Capacity \% for higher rank coals (AS1038.17-2000)
-#' @param EM Equilibrium Moisture \% 
+#' @param Ashd  Ash % (dry basis) (required for all models).
+#' @param VMdaf Volatile Matter % (dry ash free basis).
+#' @param Cdaf Carbon from Ultimates % (dry ash free basis).
+#' @param Mad Moisture % (air dried)
+#' @param Hdaf Hydrogen % (dry ash free)
+#' @param MHC Moisture Holding Capacity % for higher rank coals (AS1038.17-2000)
+#' @param EM Equilibrium Moisture % 
 #' @param Codmmf Carbon, organic (dry, mineral matter-free)
 #' @param Lipmmf Liptinite (mineral matter-free)
 #' @details 

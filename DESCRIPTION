@@ -2,11 +2,6 @@ Package: CoalCalcs
 Type: Package
 Title: Tools for converting or calculating bases and units of measure of coal analyses
 Version: 1.0.0
-Imports:
-    ggplot2,
-    stringr,
-    data.table,
-    reshape2
 Author: Kane Maxwell
 Maintainer: Kane Maxwell <kane.maxwell@hotmail.com>
 Description: Functions for converting or calculating bases and units of measure of coal analyses.
@@ -14,5 +9,5 @@ License: MIT + file LICENSE
 LazyData: TRUE
 Suggests: knitr, rmarkdown
 VignetteBuilder: knitr
-RoxygenNote: 6.0.1
+RoxygenNote: 7.1.1
 Roxygen: list(markdown = TRUE)

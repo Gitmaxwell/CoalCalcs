@@ -4,8 +4,17 @@
 \alias{convert_bases}
 \title{Convert (coal) bases}
 \usage{
-convert_bases(x, fromto, im = NA, tm = NA, nm = NA, Ashd = NA,
-  Ashad = NA, Ashar = NA, Sdry = NA)
+convert_bases(
+  x,
+  fromto,
+  im = NA,
+  tm = NA,
+  nm = NA,
+  Ashd = NA,
+  Ashad = NA,
+  Ashar = NA,
+  Sdry = NA
+)
 }
 \arguments{
 \item{x}{The analyses to be converted, for example ash, volatile matter, fixed carbon ect.}
@@ -16,7 +25,7 @@ convert_bases(x, fromto, im = NA, tm = NA, nm = NA, Ashd = NA,
 
 \item{tm}{Total moisture \% (the free and air dried moisture)}
 
-\item{nm}{Nomiated moisture}
+\item{nm}{Nominated moisture}
 
 \item{Ashd}{Ash \% (dry basis)}
 
@@ -30,7 +39,7 @@ convert_bases(x, fromto, im = NA, tm = NA, nm = NA, Ashd = NA,
 This function enables the conversion of coal analyses to a desired moisture basis
 }
 \details{
-The function allows for the conversion of common coal analyses from or to desired mositure basis. This function is NOT suitable for relative density basis conversion. Bases conversions include:
+The function allows for the conversion of common coal analyses from or to desired moisture basis. This function is NOT suitable for relative density basis conversion. Bases conversions include:
 \itemize{
 \item From air dried basis to dry ("adtodry") or from dry to air dried ("drytoad")
 \item From air dried basis to as received ("adtoar") or from as received to air dried ("artoad")
