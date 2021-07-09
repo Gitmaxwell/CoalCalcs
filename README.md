@@ -41,6 +41,6 @@ facilitate rapid coal analyses validation, and conversion.
 
 ## Installation
 
-lastools can be installed from github repository using devtools:
+CoalCalcs can be installed from github repository using devtools:
 
 devtools::install_github(“Gitmaxwell/CoalCalcs”)
