@@ -18,7 +18,7 @@ library(bookdown)
 
 ##About CoalCalcs
 
-'CoalCals' is an R package for converting or calculating bases and units of measure of coal analyses including:
+'CoalCalcs' is an R package for converting or calculating bases and units of measure of coal analyses including:
 
 * conversion of coal analyses moisture basis (from/to: as received, air dried, dry) 
 
@@ -44,6 +44,13 @@ Further it provides functionality for the direct calculation of insitu moisture 
 
 
 While various online coal bases calculators exist and formulas are well documented, no scripting package (such as R or Python) exists which demonstrates or enables the use of these conversions/calculations in one place. For those persons in the coal industry who have integrated R into their workflow/s this package should provide a valuable tool to facilitate rapid coal analyses validation, and conversion. 
+
+## Installation
+
+lastools can be installed from github repository using devtools:
+
+
+devtools::install_github("Gitmaxwell/CoalCalcs")
 
 
 
