@@ -1,5 +1,5 @@
 #' @title Convert Calorific Value (CV) units
-#' @description This functio converts Calorific Value between units kcal/kg, Mj/kg, Btu/lb and Mj/kg to J/g 
+#' @description This function converts Calorific Value between units kcal/kg, Mj/kg, Btu/lb and Mj/kg to J/g 
 #' @param fromto Text string indicating desired conversion. May be one of "kcaltomj", "kcaltobtu", "mjtokcal", "mjtobtu", "btutomj", "btutokcal"
 #' @param CV Calorific Value
 #' @details 
@@ -10,7 +10,7 @@
 #' @references 
 #' AS 1038.16 Australian Standard. Coal and Coke - Analysis and testing - Higher Rank Coals - Reporting of Test Results
 #' 
-#' MineSkill Australia, 2001, Understanding Caol Quality, Willson, W., Daneille, F., Gibson, L. (eds). 
+#' MineSkill Australia, 2001, Understanding Coal Quality, Willson, W., Daneille, F., Gibson, L. (eds). 
 #' @export
 #' @examples 
 #' #Convert CV units in Mj/kg to kcal/kg and Btu/lb

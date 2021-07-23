@@ -20,9 +20,9 @@ calculate_mmd(
 
 \item{Ashd}{Ash \% (dry)}
 
-\item{Stot}{Total Sulphur \% (dry)}
+\item{Stot}{Total Sulfur \% (dry)}
 
-\item{Sash}{Sulphur in coal Ash}
+\item{Sash}{Sulfur in coal Ash}
 
 \item{Spyr}{Pyritic Sulfur in coal}
 

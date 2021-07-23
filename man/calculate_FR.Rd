@@ -12,10 +12,10 @@ calculate_FR(VM = NA, FC = NA)
 \item{FC}{Fixed carbon}
 }
 \description{
-This function calculates coal feul ratio which is required for coal boiler design
+This function calculates coal fuel ratio which is required for coal boiler design
 }
 \details{
-Forumla for determining fuel ratio. The forumla is:
+Formula for determining fuel ratio. The formula is:
 
 \deqn{FR = FC/VM}
 

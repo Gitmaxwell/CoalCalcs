@@ -49,8 +49,11 @@ While various online coal bases calculators exist and formulas are well document
 
 CoalCalcs can be installed from github repository using devtools:
 
-
+```{r, eval=FALSE}
 devtools::install_github("Gitmaxwell/CoalCalcs")
+```
+
+
 
 
 

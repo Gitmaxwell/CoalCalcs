@@ -4,7 +4,7 @@
 #' 
 #' @param x The analyses to be converted, for example ash, volatile matter, fixed carbon ect.
 #' @param fromto The text string indicating the desired conversion
-#' @param im Inherent moisture % (commonly refered to as air dried moisture)
+#' @param im Inherent moisture % (commonly referred to as air dried moisture)
 #' @param tm  Total moisture % (the free and air dried moisture)
 #' @param nm  Nominated moisture
 #' @param Ashd  Ash % (dry basis)

@@ -21,7 +21,7 @@ convert_bases(
 
 \item{fromto}{The text string indicating the desired conversion}
 
-\item{im}{Inherent moisture \% (commonly refered to as air dried moisture)}
+\item{im}{Inherent moisture \% (commonly referred to as air dried moisture)}
 
 \item{tm}{Total moisture \% (the free and air dried moisture)}
 

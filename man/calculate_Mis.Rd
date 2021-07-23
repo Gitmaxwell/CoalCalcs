@@ -59,5 +59,5 @@ calculate_Mis("M1A",EM=5)
 
 }
 \references{
-Flercher, I.& Sanders, F. 2003. Estimation of In-Situ and Product Total Moisture. ACARP Report C10041
+Fletcher, I.& Sanders, F. 2003. Estimation of In-Situ and Product Total Moisture. ACARP Report C10041
 }

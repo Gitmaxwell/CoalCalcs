@@ -12,7 +12,7 @@ convert_CV_units(fromto, CV)
 \item{CV}{Calorific Value}
 }
 \description{
-This functio converts Calorific Value between units kcal/kg, Mj/kg, Btu/lb and Mj/kg to J/g
+This function converts Calorific Value between units kcal/kg, Mj/kg, Btu/lb and Mj/kg to J/g
 }
 \details{
 Uses conversion factors as outlined in AS 1038.16 to convert Calorific value units which may be reproted in kcal/kg, Mj/kg, or Btu/lb
@@ -27,5 +27,5 @@ sapply(l, function (x) CoalCalcs::convert_CV_units(x,40))
 \references{
 AS 1038.16 Australian Standard. Coal and Coke - Analysis and testing - Higher Rank Coals - Reporting of Test Results
 
-MineSkill Australia, 2001, Understanding Caol Quality, Willson, W., Daneille, F., Gibson, L. (eds).
+MineSkill Australia, 2001, Understanding Coal Quality, Willson, W., Daneille, F., Gibson, L. (eds).
 }

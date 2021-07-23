@@ -29,7 +29,7 @@
 #' calculate_Mis("M1A",EM=5)
 #' 
 #' @references
-#' Flercher, I.& Sanders, F. 2003. Estimation of In-Situ and Product Total Moisture. ACARP Report C10041 
+#' Fletcher, I.& Sanders, F. 2003. Estimation of In-Situ and Product Total Moisture. ACARP Report C10041 
 
 
 calculate_Mis <- function (model,Ashd=NA,VMdaf=NA,Cdaf=NA,Mad=NA,Hdaf=NA,MHC=NA,EM=NA,Codmmf=NA,Lipmmf=NA){

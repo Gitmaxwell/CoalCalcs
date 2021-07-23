@@ -1,9 +1,9 @@
 #' @title Calculate fuel ratio
-#' @description This function calculates coal feul ratio which is required for coal boiler design
+#' @description This function calculates coal fuel ratio which is required for coal boiler design
 #' @param VM Volatile matter
 #' @param FC Fixed carbon
 #' @details 
-#' Forumla for determining fuel ratio. The forumla is:
+#' Formula for determining fuel ratio. The formula is:
 #' 
 #' \deqn{FR = FC/VM} 
 #' 
