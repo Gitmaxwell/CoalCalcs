@@ -5,3 +5,5 @@ CoalCalcs.bib
 ^CoalCalcs\.Rcheck$
 ^CoalCalcs.*\.tar\.gz$
 ^CoalCalcs.*\.tgz$
+^Meta$
+^doc$

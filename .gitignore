@@ -7,3 +7,5 @@ CoalCalcs.Rproj
 CoalCalcs.Rcheck/
 CoalCalcs*.tar.gz
 CoalCalcs*.tgz
+/doc/
+/Meta/
