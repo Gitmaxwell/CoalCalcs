@@ -12,7 +12,7 @@ bibliography: references.bib
 vignette: >
   %\VignetteIndexEntry{Background}
   %\VignetteEngine{knitr::rmarkdown}
-  %\VignetteEncoding{UTF-8}
+  \usepackage[utf8]{inputenc}
 ---
 
 ```{r, echo=FALSE, eval=FALSE}
@@ -25,7 +25,7 @@ library(bookdown)
 
 ## Introduction
 
-Coal moisture and insitu density conversions are amongst the most common conversion in the coal industry. These conversions allow for the comparision of coal constitutes (such as ash, volatile matter, fixed carbon) on a common basis. Further, reporting of coal at insitu density basis is a requirment for the reporting of coal resources and reserves (@code2012jorc). As such numerous studies (@C10041, @C10042) have been undertaken to derive forumlas for calculating insitu mositure and density. While these formulas and conversions are relativly accessible in the literature, these formulas have not been convinently wrapped in any open source software package/program. CoalCalcs hopes to bridge this gap.
+Coal moisture and insitu density conversions are among the most common conversion in the coal industry. These conversions allow for the comparison of coal constitutes (such as ash, volatile matter, fixed carbon) on a common basis. Further, reporting of coal at insitu density basis is a requirement for the reporting of coal resources and reserves (@code2012jorc). As such numerous studies (@C10041, @C10042) have been undertaken to derive formulas for calculating insitu moisture and density. While these formulas and conversions are relatively accessible in the literature, these formulas have not been conveniently wrapped in any open source software package/program. CoalCalcs hopes to bridge this gap.
 
 
 ## Moisture terms and definitions
@@ -35,7 +35,7 @@ Confusion over moisture terms is common in the industry (@C10041) and therfore f
 
 ### Insitu Mositure
 In situ moisture ($\small M_{is}$) is the moisture level of the coal in its virgin, untouched state, prior
-to exposure/unearthing. In situ coal has all its pores and capillaries saturated with water and has no surface moisture, only internal moisture (@C10041). It is also refered to as bed (natural) moisture. Calculation of ($\small M_{is}$) can be used to estimate insitu relative density ($\small RD_{is}$) using [Preston Sanders equation].
+to exposure/unearthing. In situ coal has all its pores and capillaries saturated with water and has no surface moisture, only internal moisture (@C10041). It is also referred to as bed (natural) moisture. Calculation of ($\small M_{is}$) can be used to estimate insitu relative density ($\small RD_{is}$) using [Preston Sanders equation].
 
 
 ### Total Moisture
@@ -44,7 +44,7 @@ Total Moisture (TM) is all of the moisture in a coal sample, measured by drying 
 
 ### Air Dried Moisture
 
-Air dried moisture ($\small M_{ad}$) is the moisture loss recorded when crushed laboratory samples are equilibrated in a lab atmosphere and then heated to constant mass at $\small 110\deg C$ (AS 1038.3-2000)  This is also sometimes called “Inherent Moisture”. This test undertaken so that other coal constitutes can be reported at a common known moisture basis.  
+Air dried moisture ($\small M_{ad}$) is the moisture loss recorded when crushed laboratory samples are equilibrated in a lab atmosphere and then heated to constant mass at $\small 110\deg C$ (AS 1038.3-2000).  This is also sometimes called “Inherent Moisture”. This test undertaken so that other coal constitutes can be reported at a common known moisture basis.  
 
 ### Equilibrium Moisture
 
@@ -52,7 +52,7 @@ Equilibrium Moisture ($\small EM$) is an ASTM test which is most commonly employ
 
 ### Moisture Holding Capacity
 
-In Australia testing for Moisture Holding Capacity $\small MHC$ is more common.There are two Australian Standard test method for $\small MHC$, one for higher rank coals (AS1038.17-2000) and one for lower rank coals (AS2434.3-1984). The main differences are the particle size of the test sample and equilibration time. @C10041 shows that for <10% $\small MHC$ (which acounts for most Australian bituminous coals) there is no significant difference between ($\small EM$) and $\small MHC$.
+In Australia testing for Moisture Holding Capacity $\small MHC$ is more common.There are two Australian Standard test method for $\small MHC$, one for higher rank coals (AS1038.17-2000) and one for lower rank coals (AS2434.3-1984). The main differences are the particle size of the test sample and equilibration time. @C10041 shows that for <10% $\small MHC$ (which accounts for most Australian bituminous coals) there is no significant difference between ($\small EM$) and $\small MHC$.
 
 
 ## Moisture bases conversion
